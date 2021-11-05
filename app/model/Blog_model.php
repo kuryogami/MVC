@@ -1,12 +1,20 @@
 <?php
- class Blog_model {
-     private $blog = [
-         ["penulis" => "Karindra Linux","judul" => "Belajar PHP MVC","tulisan" => " "],
-         ["penulis" => "Karindra Linux","judul" => "Belajar OOP PHP","tulisan" => "Tutorial PHP OOP"] ,
-         ["penulis" => "Karindra Linux","judul" => "Belajar PHP Dasar","tulisan" => "Tutorial PHP Dasar"]
-       ];
-     public function getAllBlog() {
-         return $this->blog;
-     }
+class Blog_model {
+    private $dbh;
+    private $stmt;
+    public function __construct() {
+        //data source name
+        $dsn = "mysql:host=127.0.0.1;dbname=MVC";
+        try {
+            $this->dbh = new PDO($dsn, "root","");
+        } catch(PDOException $e) {
+            die($e->getMessage());
+        }
+    }
+    public function getAllBlog() {
+        $this->stmt = $this->dbh->prepare("SELECT * FROM blog");
+        $this->stmt->execute();
+        return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
  }
 ?>
