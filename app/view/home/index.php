@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,8 +8,8 @@
   <title>Halaman <?= $data['judul']; ?></title>
 </head>
 
-<body>
+<body> -->
   <h1>Selamat Datang!</h1>
-</body>
+<!-- </body>
 
-</html>
+</html> -->
