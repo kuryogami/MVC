@@ -1,3 +1,3 @@
 <?php
-define('BASE_URL', "http://localhost/MVC/public");
+define('BASE_URL', "//" . dirname(trim("{$_SERVER['HTTP_HOST']}{$_SERVER['SCRIPT_NAME']}","/")));
 ?>
