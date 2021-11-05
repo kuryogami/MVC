@@ -1,10 +1,12 @@
 <?php
-class User {
+class User extends controller {
     public function index() {
-      echo “User/index”;
+      $this->view('user/index');
     }
     public function profile($nama = "Linux", $pekerjaan = "Devs") {
-      echo "Salam kenal saya $nama, saya seorang $pekerjaan";
+      $data["nama"] = $nama;
+      $data["pekerjaan"] = $pekerjaan;
+      $this->view("user/profile", $data);
     }
   }
 ?>
